@@ -1,0 +1,342 @@
+$right-shadow: #018f9e;
+$left-shadow: #88f4e0;
+$main-color: #27cccd;
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background: #1d2650;
+}
+
+.sword {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 52px;
+  justify-content: flex-start;
+  transform: rotate(25deg);
+}
+.tip {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 16px 16px 16px;
+  border-color: transparent transparent $main-color transparent;
+}
+
+.tip::before {
+  position: absolute;
+  content: "";
+  transform: rotate(90deg);
+  right: -39px;
+  top: 2.5px;
+  border-style: solid;
+  border-width: 0 26px 26px 26px;
+  border-color: transparent transparent $right-shadow transparent;
+  z-index: -1;
+}
+
+.tip::after {
+  position: absolute;
+  content: "";
+  transform: rotate(-90deg);
+  left: -39px;
+  top: 2.5px;
+  border-style: solid;
+  border-width: 0 26px 26px 26px;
+  border-color: transparent transparent $left-shadow transparent;
+  z-index: -1;
+}
+
+.sword-body {
+  height: 15rem;
+  width: 2rem;
+  background: #27cccd;
+  position: relative;
+}
+
+.sword-body::before,
+.sword-body::after {
+  height: 100%;
+  width: 100%;
+  content: "";
+  background: #018f9e;
+  position: absolute;
+  z-index: -1;
+}
+
+.sword-body::before {
+  right: -10px;
+}
+
+.sword-body::after {
+  background: #88f4e0;
+  left: -10px;
+}
+
+.tip.rotate {
+  border-width: 16px 16px 0 16px;
+  border-color: #27cccd transparent transparent transparent;
+
+  &::before,
+  &::after {
+    top: -29px;
+  }
+}
+
+.gem-piece {
+  position: relative;
+  height: 3rem;
+  width: 3rem;
+  background: $main-color;
+  transform: rotate(225deg) translate(4px, 4px);
+  box-shadow: inset 20px 20px 0 0 #517894, inset 30px 30px 0 0 #366987;
+}
+
+.gem {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  background: #88f4e0;
+
+  border-radius: 100%;
+  bottom: 10px;
+  right: 10px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    background: #fefefe;
+    border-radius: 100%;
+    transform: translate(50%, 50%);
+  }
+  &::after {
+    height: 110%;
+    width: 110%;
+    content: "";
+    position: absolute;
+    background: #366987;
+    border-radius: 100%;
+    z-index: -2;
+    left: -3px;
+    top: -3px;
+  }
+}
+
+.hilt {
+  position: relative;
+}
+
+.guard {
+  position: absolute;
+  width: 10rem;
+  height: 20px;
+  background: #517894;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+
+    transform: translate(-50%, -50%) rotate(180deg);
+
+    border-bottom: 7px solid #366987;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    height: 0;
+    width: 3rem;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -17px;
+    width: 3rem;
+    height: 7px;
+    background: #7db5d1;
+    left: 50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+}
+
+.handle {
+  height: 5rem;
+  width: 1.5rem;
+  background: #843414;
+  position: relative;
+  z-index: 1;
+  &::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 6px;
+    background: #a04d28;
+    left: 5px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    height: 70%;
+    left: 0;
+    width: 17px;
+    top: 12px;
+    background: #a04d28;
+  }
+}
+
+.pommel {
+  height: 2rem;
+  width: 2.5rem;
+  background: #517894;
+  position: relative;
+  z-index: -1;
+
+  & .pommel-gem {
+    position: absolute;
+    height: 2.5rem;
+    width: 2.5rem;
+    background: #517894;
+    transform: rotate(45deg);
+    top: 4px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 1.5rem;
+      width: 1.5rem;
+      background: #27cccd;
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    & .center-shine {
+      content: "";
+      position: absolute;
+      height: 10px;
+      width: 10px;
+      background: #cff9f0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &::before {
+        content: "";
+        position: absolute;
+        border-bottom: 7px solid #88f4e0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        width: 10px;
+        left: -7px;
+        bottom: -6.5px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        border-bottom: 7px solid #fefefe;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        width: 10px;
+        right: -7px;
+        bottom: 1px;
+        left: -15px;
+        transform: rotate(90deg);
+      }
+    }
+  }
+}
+
+.mini-gem {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  background: #517894;
+  transform: rotate(45deg);
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 10px;
+    width: 10px;
+    background: #88f4e0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(180deg);
+    box-shadow: inset 5px 5px 0 0 #27cccd;
+  }
+
+  &.left {
+    left: -12px;
+    bottom: 5px;
+  }
+
+  &.right {
+    right: -12px;
+    bottom: 5px;
+  }
+}
+
+.shine {
+  position: absolute;
+  transform: rotate(-45deg) skewx(-40deg);
+  background: #88f4e0;
+  left: -13px;
+  width: 33px;
+
+  &.light-1 {
+    height: 6px;
+    top: 3rem;
+  }
+
+  &.light-2 {
+    height: 10px;
+    top: 4.3rem;
+  }
+
+  &.light-3 {
+    height: 5px;
+    top: 10rem;
+  }
+  &.light-4 {
+    height: 14px;
+    top: 12rem;
+  }
+  &.light-5 {
+    height: 3px;
+    top: 13.5rem;
+  }
+  &.dark-1 {
+    background: #018f9e;
+    height: 5px;
+    top: 13.5rem;
+    left: 0.7rem;
+  }
+  &.dark-2 {
+    background: #018f9e;
+    height: 4px;
+    top: 7rem;
+    left: 0.7rem;
+  }
+  &.dark-3 {
+    background: #018f9e;
+    height: 8px;
+    top: 6rem;
+    left: 0.7rem;
+  }
+}
