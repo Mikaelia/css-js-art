@@ -26,65 +26,65 @@ body {
   border-style: solid;
   border-width: 0 16px 16px 16px;
   border-color: transparent transparent $main-color transparent;
+
+  &::before {
+    position: absolute;
+    content: "";
+    transform: rotate(90deg);
+    right: -39px;
+    top: 2.5px;
+    border-style: solid;
+    border-width: 0 26px 26px 26px;
+    border-color: transparent transparent $right-shadow transparent;
+    z-index: -1;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    transform: rotate(-90deg);
+    left: -39px;
+    top: 2.5px;
+    border-style: solid;
+    border-width: 0 26px 26px 26px;
+    border-color: transparent transparent $left-shadow transparent;
+    z-index: -1;
+  }
 }
 
-.tip::before {
-  position: absolute;
-  content: "";
-  transform: rotate(90deg);
-  right: -39px;
-  top: 2.5px;
-  border-style: solid;
-  border-width: 0 26px 26px 26px;
-  border-color: transparent transparent $right-shadow transparent;
-  z-index: -1;
-}
+.tip.rotate {
+  border-width: 16px 16px 0 16px;
+  border-color: $main-color transparent transparent transparent;
 
-.tip::after {
-  position: absolute;
-  content: "";
-  transform: rotate(-90deg);
-  left: -39px;
-  top: 2.5px;
-  border-style: solid;
-  border-width: 0 26px 26px 26px;
-  border-color: transparent transparent $left-shadow transparent;
-  z-index: -1;
+  &::before,
+  &::after {
+    top: -29px;
+  }
 }
 
 .sword-body {
   height: 15rem;
   width: 2rem;
-  background: #27cccd;
+  background: $main-color;
   position: relative;
-}
-
-.sword-body::before,
-.sword-body::after {
-  height: 100%;
-  width: 100%;
-  content: "";
-  background: #018f9e;
-  position: absolute;
-  z-index: -1;
-}
-
-.sword-body::before {
-  right: -10px;
-}
-
-.sword-body::after {
-  background: #88f4e0;
-  left: -10px;
-}
-
-.tip.rotate {
-  border-width: 16px 16px 0 16px;
-  border-color: #27cccd transparent transparent transparent;
 
   &::before,
   &::after {
-    top: -29px;
+    height: 100%;
+    width: 100%;
+    content: "";
+    background: $right-shadow;
+    position: absolute;
+    z-index: -1;
+  }
+
+  &::before {
+    right: -10px;
+  }
+
+  &::after {
+    background: $left-shadow;
+    left: -10px;
   }
 }
 
@@ -101,8 +101,7 @@ body {
   position: absolute;
   height: 25px;
   width: 25px;
-  background: #88f4e0;
-
+  background: $left-shadow;
   border-radius: 100%;
   bottom: 10px;
   right: 10px;
@@ -217,8 +216,7 @@ body {
       position: absolute;
       height: 1.5rem;
       width: 1.5rem;
-      background: #27cccd;
-
+      background: $main-color;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -237,7 +235,7 @@ body {
       &::before {
         content: "";
         position: absolute;
-        border-bottom: 7px solid #88f4e0;
+        border-bottom: 7px solid $left-shadow;
         border-left: 7px solid transparent;
         border-right: 7px solid transparent;
         width: 10px;
@@ -274,11 +272,11 @@ body {
     bottom: 0;
     height: 10px;
     width: 10px;
-    background: #88f4e0;
+    background: $left-shadow;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(180deg);
-    box-shadow: inset 5px 5px 0 0 #27cccd;
+    box-shadow: inset 5px 5px 0 0 $main-color;
   }
 
   &.left {
@@ -292,10 +290,10 @@ body {
   }
 }
 
-.shine {
+.sword-shine {
   position: absolute;
   transform: rotate(-45deg) skewx(-40deg);
-  background: #88f4e0;
+  background: $left-shadow;
   left: -13px;
   width: 33px;
 
@@ -322,19 +320,19 @@ body {
     top: 13.5rem;
   }
   &.dark-1 {
-    background: #018f9e;
+    background: $right-shadow;
     height: 5px;
     top: 13.5rem;
     left: 0.7rem;
   }
   &.dark-2 {
-    background: #018f9e;
+    background: $right-shadow;
     height: 4px;
     top: 7rem;
     left: 0.7rem;
   }
   &.dark-3 {
-    background: #018f9e;
+    background: $right-shadow;
     height: 8px;
     top: 6rem;
     left: 0.7rem;
